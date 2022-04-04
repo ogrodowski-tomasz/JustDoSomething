@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40765FCA27FB689100F7DAB4 /* Item-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40765FC927FB689100F7DAB4 /* Item-CoreDataHelpers.swift */; };
+		40765FCC27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40765FCB27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift */; };
 		40C27D4C27FB35A20057B85D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C27D4B27FB35A20057B85D /* HomeView.swift */; };
 		40C27D4E27FB362F0057B85D /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C27D4D27FB362F0057B85D /* ProjectsView.swift */; };
 		40F5CBC227F4B7F700672AF8 /* UltimatePortoflioAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F5CBC127F4B7F700672AF8 /* UltimatePortoflioAppApp.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40765FC927FB689100F7DAB4 /* Item-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataHelpers.swift"; sourceTree = "<group>"; };
+		40765FCB27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		40C27D4A27FB32920057B85D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		40C27D4B27FB35A20057B85D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		40C27D4D27FB362F0057B85D /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				40C27D4A27FB32920057B85D /* Info.plist */,
 				40F5CBC127F4B7F700672AF8 /* UltimatePortoflioAppApp.swift */,
 				40F5CBC327F4B7F700672AF8 /* ContentView.swift */,
+				40765FC927FB689100F7DAB4 /* Item-CoreDataHelpers.swift */,
+				40765FCB27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift */,
 				40F5CBCF27F4B8C700672AF8 /* Main.xcdatamodeld */,
 				40F5CBD227F4C6C700672AF8 /* DataController.swift */,
 				40F5CBC527F4B7F900672AF8 /* Assets.xcassets */,
@@ -153,10 +159,12 @@
 			files = (
 				40C27D4E27FB362F0057B85D /* ProjectsView.swift in Sources */,
 				40F5CBD127F4B8C700672AF8 /* Main.xcdatamodeld in Sources */,
+				40765FCC27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift in Sources */,
 				40F5CBD327F4C6C700672AF8 /* DataController.swift in Sources */,
 				40F5CBC427F4B7F700672AF8 /* ContentView.swift in Sources */,
 				40C27D4C27FB35A20057B85D /* HomeView.swift in Sources */,
 				40F5CBC227F4B7F700672AF8 /* UltimatePortoflioAppApp.swift in Sources */,
+				40765FCA27FB689100F7DAB4 /* Item-CoreDataHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

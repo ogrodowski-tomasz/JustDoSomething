@@ -27,9 +27,9 @@ struct ProjectsView: View {
         NavigationView {
             List {
                 ForEach(projects.wrappedValue) { project in
-                    Section(header: Text(project.title ?? "")) {
-                        ForEach(project.items?.allObjects as? [Item] ?? []) { item in // When u add "to many" relationship in CoreData, we get our items back as a SET rather than ARRAY. '.allObjects' is making them as an array. Swift thinks this set (created by allObjects) is a set of any type. We must tell swift that its a Array of Items
-                            Text(item.title ?? "")
+                    Section(header: Text(project.projectTitle)) {
+                        ForEach(project.projectItems) { item in
+                            Text(item.itemTitle)
                         }
                     }
                 }
