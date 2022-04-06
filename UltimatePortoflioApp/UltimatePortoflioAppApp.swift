@@ -23,6 +23,11 @@ struct UltimatePortoflioAppApp: App {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext) // To jest używa przez SwiftUI by sczytać wartości z CoreData
                 .environmentObject(dataController) // To jest dla nas do używania wartości CoreData
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: save) // App zapisuje dane po prześciu w nieaktywność (homescreen, multitasking view etc)
         }
+    }
+    
+    func save(_ note: Notification) {
+        dataController.save()
     }
 }

@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ProjectsView: View {
+    
+    static let openTag: String? = "Open"
+    static let closedTag: String? = "Closed"
+    
     // Ten widok ma pokazywać 'Projects' parametrycznie w zależności od tego czy są otwarte czy zamknięte
     let showClosedProjects: Bool
     // Nie możemy wykonać typowego żądania fetchu dopóki nie wiemy konkretnie czrgo szukamy (open czy closed project?)
@@ -27,9 +31,9 @@ struct ProjectsView: View {
         NavigationView {
             List {
                 ForEach(projects.wrappedValue) { project in
-                    Section(header: Text(project.projectTitle)) {
+                    Section(header: ProjectHeaderView(project: project)) {
                         ForEach(project.projectItems) { item in
-                            Text(item.itemTitle)
+                            ItemRowView(item: item)
                         }
                     }
                 }

@@ -8,6 +8,9 @@
 import Foundation
 
 extension Project {
+    
+    static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
+    
     var projectTitle: String { title ?? "New project" }
     var projectDetail: String { detail ?? "" }
     var projectColor: String { color ?? "Light Blue" }
@@ -36,12 +39,12 @@ extension Project {
     }
     
     var completionAmount: Double {
-        let originalItems = items?.allObjects as? [Item] ?? []
-        guard originalItems.isEmpty == false else { return 0 }
+        let originalItems = items?.allObjects as? [Item] ?? [] // Stwórz tablicę typów Item
+        guard originalItems.isEmpty == false else { return 0 } // Jeśli tablica jest pusta, zwróc 0
         
-        let completedItems = originalItems.filter(\.completed)
+        let completedItems = originalItems.filter(\.completed) // Filtrowanie tablicy typów Item, na te, których parametr completed == true
         
-        return Double(completedItems.count) / Double(originalItems.count)
+        return Double(completedItems.count) / Double(originalItems.count) // Ich stosunek do siebie
     }
     
     static var example: Project {
