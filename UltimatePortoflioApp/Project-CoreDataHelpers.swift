@@ -16,8 +16,11 @@ extension Project {
     var projectColor: String { color ?? "Light Blue" }
     
     var projectItems: [Item] {
-        let itemsArray = items?.allObjects as? [Item] ?? [] // When u add "to many" relationship in CoreData, we get our items back as a SET rather than ARRAY. '.allObjects' is making them as an array. Swift thinks this set (created by allObjects) is a set of any type. We must tell swift that its a Array of Items
-        return itemsArray.sorted { first, second in
+        items?.allObjects as? [Item] ?? [] // When u add "to many" relationship in CoreData, we get our items back as a SET rather than ARRAY. '.allObjects' is making them as an array. Swift thinks this set (created by allObjects) is a set of any type. We must tell swift that its a Array of Items
+    }
+    
+    var projectItemsDefaultSorted: [Item] {
+        return projectItems.sorted { first, second in
             if first.completed == false {
                 if second.completed == true {
                     return true
@@ -60,5 +63,15 @@ extension Project {
         return project
     }
     
+    func projectItems(using sortOrder: Item.SortOrder) -> [Item] {
+        switch sortOrder {
+        case .optimized:
+            return projectItemsDefaultSorted
+        case .title:
+            return projectItems.sorted { $0.itemTitle < $1.itemTitle }
+        case .creationDate:
+            return projectItems.sorted { $0.itemCreationDate < $1.itemCreationDate }
+        }
+    }
 
 }

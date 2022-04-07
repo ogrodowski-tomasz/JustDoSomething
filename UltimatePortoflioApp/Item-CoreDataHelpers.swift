@@ -8,7 +8,12 @@
 import Foundation
 
 extension Item { // Rozszerzenie klasy Item tak by nie musieć bawic się w rozpakowywanie optionali
-    var itemTitle: String { title ?? "" }
+    
+    enum SortOrder {
+        case optimized, title, creationDate
+    }
+    
+    var itemTitle: String { title ?? "New item" }
     var itemDetail: String { detail ?? "" }
     var itemCreationDate: Date { creationDate ?? Date() }
     
