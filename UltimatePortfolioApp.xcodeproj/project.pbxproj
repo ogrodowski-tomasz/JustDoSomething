@@ -16,6 +16,11 @@
 		409DC7FA27FDA66E003720DC /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409DC7F927FDA66E003720DC /* ProjectHeaderView.swift */; };
 		409DC7FC27FDA937003720DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409DC7FB27FDA937003720DC /* Colors.xcassets */; };
 		409DC7FE27FDB339003720DC /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409DC7FD27FDB339003720DC /* EditProjectView.swift */; };
+		40A5CCD628003DBB007E44F7 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5CCD528003DBB007E44F7 /* Bundle-Decodable.swift */; };
+		40A5CCD8280044C3007E44F7 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 40A5CCD7280044C3007E44F7 /* Awards.json */; };
+		40A5CCDA2800456B007E44F7 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5CCD92800456B007E44F7 /* Award.swift */; };
+		40A5CCDC2800464F007E44F7 /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5CCDB2800464F007E44F7 /* AwardsView.swift */; };
+		40A5CCDE28005AB3007E44F7 /* Color-Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5CCDD28005AB3007E44F7 /* Color-Additions.swift */; };
 		40C27D4C27FB35A20057B85D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C27D4B27FB35A20057B85D /* HomeView.swift */; };
 		40C27D4E27FB362F0057B85D /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C27D4D27FB362F0057B85D /* ProjectsView.swift */; };
 		40F5CBC227F4B7F700672AF8 /* UltimatePortoflioAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F5CBC127F4B7F700672AF8 /* UltimatePortoflioAppApp.swift */; };
@@ -36,6 +41,11 @@
 		409DC7F927FDA66E003720DC /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		409DC7FB27FDA937003720DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		409DC7FD27FDB339003720DC /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		40A5CCD528003DBB007E44F7 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		40A5CCD7280044C3007E44F7 /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
+		40A5CCD92800456B007E44F7 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
+		40A5CCDB2800464F007E44F7 /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
+		40A5CCDD28005AB3007E44F7 /* Color-Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Additions.swift"; sourceTree = "<group>"; };
 		40C27D4A27FB32920057B85D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		40C27D4B27FB35A20057B85D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		40C27D4D27FB362F0057B85D /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
@@ -78,15 +88,20 @@
 		40F5CBC027F4B7F700672AF8 /* UltimatePortoflioApp */ = {
 			isa = PBXGroup;
 			children = (
+				40A5CCD7280044C3007E44F7 /* Awards.json */,
+				40A5CCD92800456B007E44F7 /* Award.swift */,
+				40A5CCDB2800464F007E44F7 /* AwardsView.swift */,
 				409DC7F727FD9DB2003720DC /* Binding-onChange.swift */,
 				40F5CBC327F4B7F700672AF8 /* ContentView.swift */,
 				40F5CBD227F4C6C700672AF8 /* DataController.swift */,
 				409DC7F327FD957B003720DC /* EditItemView.swift */,
 				409DC7FD27FDB339003720DC /* EditProjectView.swift */,
 				40C27D4B27FB35A20057B85D /* HomeView.swift */,
+				40A5CCDD28005AB3007E44F7 /* Color-Additions.swift */,
 				40765FC927FB689100F7DAB4 /* Item-CoreDataHelpers.swift */,
 				409DC7F527FD99E8003720DC /* ItemRowView.swift */,
 				40C27D4D27FB362F0057B85D /* ProjectsView.swift */,
+				40A5CCD528003DBB007E44F7 /* Bundle-Decodable.swift */,
 				409DC7F927FDA66E003720DC /* ProjectHeaderView.swift */,
 				40765FCB27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift */,
 				4038CBDB27FF561200AE5BDF /* SelectSomethingView.swift */,
@@ -167,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				409DC7FC27FDA937003720DC /* Colors.xcassets in Resources */,
+				40A5CCD8280044C3007E44F7 /* Awards.json in Resources */,
 				40F5CBC927F4B7F900672AF8 /* Preview Assets.xcassets in Resources */,
 				40F5CBC627F4B7F900672AF8 /* Assets.xcassets in Resources */,
 			);
@@ -180,9 +196,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C27D4E27FB362F0057B85D /* ProjectsView.swift in Sources */,
+				40A5CCDE28005AB3007E44F7 /* Color-Additions.swift in Sources */,
 				409DC7FA27FDA66E003720DC /* ProjectHeaderView.swift in Sources */,
+				40A5CCD628003DBB007E44F7 /* Bundle-Decodable.swift in Sources */,
 				40F5CBD127F4B8C700672AF8 /* Main.xcdatamodeld in Sources */,
 				4038CBDC27FF561200AE5BDF /* SelectSomethingView.swift in Sources */,
+				40A5CCDA2800456B007E44F7 /* Award.swift in Sources */,
+				40A5CCDC2800464F007E44F7 /* AwardsView.swift in Sources */,
 				40765FCC27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift in Sources */,
 				409DC7FE27FDB339003720DC /* EditProjectView.swift in Sources */,
 				40F5CBD327F4C6C700672AF8 /* DataController.swift in Sources */,
@@ -325,7 +345,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UltimatePortoflioApp/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -355,7 +375,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UltimatePortoflioApp/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -85,4 +85,26 @@ class DataController: ObservableObject {
         let batchDeleteRequest2 = NSBatchDeleteRequest(fetchRequest: fetchRequest2) // Zażądanie by to usunąc
         _ = try? container.viewContext.execute(batchDeleteRequest2) // Wykonaj to żądanie
     }
+    
+    func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
+        (try? container.viewContext.count(for: fetchRequest)) ?? 0 // We want to make try? before nil coalesing
+    }
+    
+    func hasEarned(award: Award) -> Bool {
+        switch award.criterion { // Different awards have differents criterions of awards giving. We will switch on them
+        case "items":
+            let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item") // Making a fetchRequest of Item Type with the string "Item" entity name.
+            let awardCount = count(for: fetchRequest) // Counting items in Item from fetchRequest
+            return awardCount >= award.value // Returning a Bool checking if the count of items is >= min value to earn an specific Award
+        case "complete":
+            let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
+            fetchRequest.predicate = NSPredicate(format: "completed = true") // we filter the fetchRequest only to give us completed items
+            let awardCount = count(for: fetchRequest)
+            return awardCount >= award.value
+        default:
+       //     fatalError("Unknown award criterion: \(award.criterion)")
+            return false
+        }
+    }
+    
 }
