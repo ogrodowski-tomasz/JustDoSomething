@@ -1,0 +1,162 @@
+[
+    {
+        "name": "Pierwsze kroki",
+        "description": "Dodaj swój pierwszy element.",
+        "color": "Light Blue",
+        "criterion": "items",
+        "value": 1,
+        "image": "figure.walk"
+    },
+    {
+        "name": "Świetny początek",
+        "description": "Dodaj 10 elementów.",
+        "color": "Light Blue",
+        "criterion": "items",
+        "value": 10,
+        "image": "hand.thumbsup.fill"
+    },
+    {
+        "name": "Pniesz się w górę",
+        "description": "Dodaj 20 elementów.",
+        "color": "Light Blue",
+        "criterion": "items",
+        "value": 20,
+        "image": "tray.and.arrow.up.fill"
+    },
+    {
+        "name": "Nabierasz tempa",
+        "description": "Dodaj 50 elementów.",
+        "color": "Light Blue",
+        "criterion": "items",
+        "value": 50,
+        "image": "speedometer"
+    },
+    {
+        "name": "Robi wrażenie",
+        "description": "Dodaj 100 elementów.",
+        "color": "Light Blue",
+        "criterion": "items",
+        "value": 100,
+        "image": "dot.radiowaves.left.and.right"
+    },
+    {
+        "name": "Mocny zawodnik",
+        "description": "Dodaj 250 elementów.",
+        "color": "Light Blue",
+        "criterion": "items",
+        "value": 250,
+        "image": "square.stack.3d.up.fill"
+    },
+    {
+        "name": "Klasa światowa",
+        "description": "Dodaj 500 elementów.",
+        "color": "Light Blue",
+        "criterion": "items",
+        "value": 500,
+        "image": "star.circle.fill"
+    },
+    {
+        "name": "Po mistrzowsku",
+        "description": "Dodaj 1000 elementów.",
+        "color": "Light Blue",
+        "criterion": "items",
+        "value": 1000,
+        "image": "crown.fill"
+    },
+    {
+        "name": "Odznaczanie",
+        "description": "Zalicz pierwszy element projektu",
+        "color": "Orange",
+        "criterion": "complete",
+        "value": 1,
+        "image": "checkmark.shield.fill"
+    },
+    {
+        "name": "Dajesz radę",
+        "description": "Zalicz 10 elementów.",
+        "color": "Orange",
+        "criterion": "complete",
+        "value": 10,
+        "image": "guitars.fill"
+    },
+    {
+        "name": "20 to już konkret",
+        "description": "Zalicz 20 elementów.",
+        "color": "Orange",
+        "criterion": "complete",
+        "value": 20,
+        "image": "20.square.fill"
+    },
+    {
+        "name": "Doskonale!",
+        "description": "Zalicz 50 elementów.",
+        "color": "Orange",
+        "criterion": "complete",
+        "value": 50,
+        "image": "target"
+    },
+    {
+        "name": "Wysokie loty",
+        "description": "Zalicz 100 elementów.",
+        "color": "Orange",
+        "criterion": "complete",
+        "value": 100,
+        "image": "airplane.circle.fill"
+    },
+    {
+        "name": "Jesteś nie do zatrzymania!",
+        "description": "Zalicz 250 elementów.",
+        "color": "Orange",
+        "criterion": "complete",
+        "value": 250,
+        "image": "flame.fill"
+    },
+    {
+        "name": "Ostroooo",
+        "description": "Zalicz 500 elementów.",
+        "color": "Orange",
+        "criterion": "complete",
+        "value": 500,
+        "image": "text.badge.checkmark"
+    },
+    {
+        "name": "Boom!",
+        "description": "Zalicz 1000 elementów.",
+        "color": "Orange",
+        "criterion": "complete",
+        "value": 1000,
+        "image": "bolt.circle.fill"
+    },
+    {
+        "name": "Pierwsza wiadomość",
+        "description": "Zamieściłeś pierwszą wiadomość na czacie grupowym.",
+        "color": "Purple",
+        "criterion": "chat",
+        "value": 1,
+        "image": "person.fill"
+    },
+    {
+        "name": "Gaduła",
+        "description": "Zamieściłeś 10 wiadomości na czacie grupowym.",
+        "color": "Purple",
+        "criterion": "chat",
+        "value": 10,
+        "image": "message.fill"
+    },
+    {
+        "name": "Członek community",
+        "description": "Zamieściłeś 100 wiadomości na czacie grupowym.",
+        "color": "Purple",
+        "criterion": "chat",
+        "value": 100,
+        "image": "arrow.up.heart.fill"
+    },
+    {
+        "name": "WSPIERACZ",
+        "description": "Kupiłeś odznakę premium",
+        "color": "Green",
+        "criterion": "unlock",
+        "value": 0,
+        "image": "dollarsign.square.fill"
+    }
+]

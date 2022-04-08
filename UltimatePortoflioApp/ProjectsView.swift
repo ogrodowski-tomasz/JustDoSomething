@@ -65,7 +65,7 @@ struct ProjectsView: View {
                                             dataController.save()
                                         }
                                     } label: {
-                                        Label("Add new item", systemImage: "plus")
+                                        Label("Add New Item", systemImage: "plus")
                                     }
                                 }
                             }
@@ -74,7 +74,7 @@ struct ProjectsView: View {
                     .listStyle(InsetGroupedListStyle())
                 }
             }
-            .navigationTitle(showClosedProjects ? "Closed projects" : "Open projects")
+            .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if showClosedProjects == false {
