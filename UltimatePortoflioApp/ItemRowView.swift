@@ -33,6 +33,12 @@ struct ItemRowView: View {
         // We could have used method, it would be fine. Using computed property matches the way we created the body property. It is the same thing, it looks the same. Both of them use some structure inside there, no fancy complex logic, just some view structure.
     }
     
+    var label: Text { // Creating custom label to be read by VoiceOver
+        if item.completed { return Text("\(item.itemTitle), completed.") }
+        else if item.priority == 3 { return Text("\(item.itemTitle), high priority.") }
+        else { return Text(item.itemTitle) }
+    }
+    
     var body: some View {
         NavigationLink(destination: EditItemView(item: item)) {
             Label {
@@ -41,6 +47,7 @@ struct ItemRowView: View {
                 icon
             }
         }
+        .accessibilityLabel(label)
     }
 }
 

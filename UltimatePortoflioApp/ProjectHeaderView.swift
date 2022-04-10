@@ -18,11 +18,13 @@ struct ProjectHeaderView: View {
                 ProgressView(value: project.completionAmount)
                     .accentColor(Color(project.projectColor))
             }
+            .accessibilityElement(children: .combine)
             Spacer()
             
             NavigationLink(destination: EditProjectView(project: project)) {
                 Image(systemName: "square.and.pencil")
                     .imageScale(.large)
+                    .accessibilityLabel("Edit Project")
             }
         }
         .padding(.bottom, 10)

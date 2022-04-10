@@ -59,6 +59,13 @@ struct EditProjectView: View {
                             color = item
                             update()
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityAddTraits( // Letting VoiceOver know what kind of things he is dealing with rn
+                            item == color
+                            ? [.isButton, .isSelected]
+                            : .isButton
+                        )
+                        .accessibilityLabel(LocalizedStringKey(item)) // Underlying value is in English, but read value will be english or polish
                     }
                 }
                 .padding(.vertical)
