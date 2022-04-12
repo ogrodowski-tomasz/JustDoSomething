@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4038CBDC27FF561200AE5BDF /* SelectSomethingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4038CBDB27FF561200AE5BDF /* SelectSomethingView.swift */; };
+		403EE22428009995006D20B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 403EE22628009995006D20B1 /* Localizable.strings */; };
+		403EE22828009A21006D20B1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 403EE22A28009A21006D20B1 /* Localizable.stringsdict */; };
+		403EE22C28009ADF006D20B1 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 403EE22E28009ADF006D20B1 /* Awards.json */; };
+		403EE231280309B8006D20B1 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EE230280309B8006D20B1 /* ItemListView.swift */; };
+		403EE23328030A99006D20B1 /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EE23228030A99006D20B1 /* ProjectSummaryView.swift */; };
 		40765FCA27FB689100F7DAB4 /* Item-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40765FC927FB689100F7DAB4 /* Item-CoreDataHelpers.swift */; };
 		40765FCC27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40765FCB27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift */; };
 		409DC7F427FD957B003720DC /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409DC7F327FD957B003720DC /* EditItemView.swift */; };
@@ -17,7 +22,6 @@
 		409DC7FC27FDA937003720DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409DC7FB27FDA937003720DC /* Colors.xcassets */; };
 		409DC7FE27FDB339003720DC /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409DC7FD27FDB339003720DC /* EditProjectView.swift */; };
 		40A5CCD628003DBB007E44F7 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5CCD528003DBB007E44F7 /* Bundle-Decodable.swift */; };
-		40A5CCD8280044C3007E44F7 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 40A5CCD7280044C3007E44F7 /* Awards.json */; };
 		40A5CCDA2800456B007E44F7 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5CCD92800456B007E44F7 /* Award.swift */; };
 		40A5CCDC2800464F007E44F7 /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5CCDB2800464F007E44F7 /* AwardsView.swift */; };
 		40A5CCDE28005AB3007E44F7 /* Color-Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5CCDD28005AB3007E44F7 /* Color-Additions.swift */; };
@@ -33,6 +37,14 @@
 
 /* Begin PBXFileReference section */
 		4038CBDB27FF561200AE5BDF /* SelectSomethingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSomethingView.swift; sourceTree = "<group>"; };
+		403EE22528009995006D20B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		403EE227280099A4006D20B1 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		403EE22928009A21006D20B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		403EE22B28009A23006D20B1 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = pl; path = pl.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		403EE22D28009ADF006D20B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/Awards.json; sourceTree = "<group>"; };
+		403EE22F28009AE1006D20B1 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = pl; path = pl.lproj/Awards.json; sourceTree = "<group>"; };
+		403EE230280309B8006D20B1 /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
+		403EE23228030A99006D20B1 /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
 		40765FC927FB689100F7DAB4 /* Item-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		40765FCB27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		409DC7F327FD957B003720DC /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
@@ -42,7 +54,6 @@
 		409DC7FB27FDA937003720DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		409DC7FD27FDB339003720DC /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		40A5CCD528003DBB007E44F7 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
-		40A5CCD7280044C3007E44F7 /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
 		40A5CCD92800456B007E44F7 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		40A5CCDB2800464F007E44F7 /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
 		40A5CCDD28005AB3007E44F7 /* Color-Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Additions.swift"; sourceTree = "<group>"; };
@@ -88,7 +99,9 @@
 		40F5CBC027F4B7F700672AF8 /* UltimatePortoflioApp */ = {
 			isa = PBXGroup;
 			children = (
-				40A5CCD7280044C3007E44F7 /* Awards.json */,
+				403EE22628009995006D20B1 /* Localizable.strings */,
+				403EE22A28009A21006D20B1 /* Localizable.stringsdict */,
+				403EE22E28009ADF006D20B1 /* Awards.json */,
 				40A5CCD92800456B007E44F7 /* Award.swift */,
 				40A5CCDB2800464F007E44F7 /* AwardsView.swift */,
 				409DC7F727FD9DB2003720DC /* Binding-onChange.swift */,
@@ -97,8 +110,10 @@
 				409DC7F327FD957B003720DC /* EditItemView.swift */,
 				409DC7FD27FDB339003720DC /* EditProjectView.swift */,
 				40C27D4B27FB35A20057B85D /* HomeView.swift */,
+				403EE23228030A99006D20B1 /* ProjectSummaryView.swift */,
 				40A5CCDD28005AB3007E44F7 /* Color-Additions.swift */,
 				40765FC927FB689100F7DAB4 /* Item-CoreDataHelpers.swift */,
+				403EE230280309B8006D20B1 /* ItemListView.swift */,
 				409DC7F527FD99E8003720DC /* ItemRowView.swift */,
 				40C27D4D27FB362F0057B85D /* ProjectsView.swift */,
 				40A5CCD528003DBB007E44F7 /* Bundle-Decodable.swift */,
@@ -165,6 +180,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = 40F5CBB527F4B7F700672AF8;
 			productRefGroup = 40F5CBBF27F4B7F700672AF8 /* Products */;
@@ -181,10 +197,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403EE22428009995006D20B1 /* Localizable.strings in Resources */,
 				409DC7FC27FDA937003720DC /* Colors.xcassets in Resources */,
-				40A5CCD8280044C3007E44F7 /* Awards.json in Resources */,
+				403EE22C28009ADF006D20B1 /* Awards.json in Resources */,
 				40F5CBC927F4B7F900672AF8 /* Preview Assets.xcassets in Resources */,
 				40F5CBC627F4B7F900672AF8 /* Assets.xcassets in Resources */,
+				403EE22828009A21006D20B1 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,11 +218,13 @@
 				409DC7FA27FDA66E003720DC /* ProjectHeaderView.swift in Sources */,
 				40A5CCD628003DBB007E44F7 /* Bundle-Decodable.swift in Sources */,
 				40F5CBD127F4B8C700672AF8 /* Main.xcdatamodeld in Sources */,
+				403EE231280309B8006D20B1 /* ItemListView.swift in Sources */,
 				4038CBDC27FF561200AE5BDF /* SelectSomethingView.swift in Sources */,
 				40A5CCDA2800456B007E44F7 /* Award.swift in Sources */,
 				40A5CCDC2800464F007E44F7 /* AwardsView.swift in Sources */,
 				40765FCC27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift in Sources */,
 				409DC7FE27FDB339003720DC /* EditProjectView.swift in Sources */,
+				403EE23328030A99006D20B1 /* ProjectSummaryView.swift in Sources */,
 				40F5CBD327F4C6C700672AF8 /* DataController.swift in Sources */,
 				409DC7F627FD99E8003720DC /* ItemRowView.swift in Sources */,
 				409DC7F827FD9DB2003720DC /* Binding-onChange.swift in Sources */,
@@ -217,6 +237,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		403EE22628009995006D20B1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				403EE22528009995006D20B1 /* en */,
+				403EE227280099A4006D20B1 /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		403EE22A28009A21006D20B1 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				403EE22928009A21006D20B1 /* en */,
+				403EE22B28009A23006D20B1 /* pl */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+		403EE22E28009ADF006D20B1 /* Awards.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				403EE22D28009ADF006D20B1 /* en */,
+				403EE22F28009AE1006D20B1 /* pl */,
+			);
+			name = Awards.json;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		40F5CBCA27F4B7F900672AF8 /* Debug */ = {

@@ -4,19 +4,38 @@
 //
 //  Created by Tomasz Ogrodowski on 04/04/2022.
 //
+// swiftlint:disable trailing_whitespace
 
 import Foundation
+import SwiftUI
 
 extension Project {
     
-    static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
+    static let colors = [
+        "Pink",
+        "Purple",
+        "Red",
+        "Orange",
+        "Gold",
+        "Green",
+        "Teal",
+        "Light Blue",
+        "Dark Blue",
+        "Midnight",
+        "Dark Gray",
+        "Gray"
+    ]
     
     var projectTitle: String { title ?? NSLocalizedString("New Project", comment: "Create new project") }
     var projectDetail: String { detail ?? "" }
     var projectColor: String { color ?? "Light Blue" }
     
+    var label: LocalizedStringKey { LocalizedStringKey("\(projectTitle), \(projectItems.count) items, \(completionAmount * 100, specifier: "%g")% complete.") }
+    
     var projectItems: [Item] {
-        items?.allObjects as? [Item] ?? [] // When u add "to many" relationship in CoreData, we get our items back as a SET rather than ARRAY. '.allObjects' is making them as an array. Swift thinks this set (created by allObjects) is a set of any type. We must tell swift that its a Array of Items
+        items?.allObjects as? [Item] ?? []
+        // When u add "to many" relationship in CoreData, we get our items back as a SET rather than ARRAY. '.allObjects' is making them as an array.
+        // Swift thinks this set (created by allObjects) is a set of any type. We must tell swift that its a Array of Items
     }
     
     var projectItemsDefaultSorted: [Item] {
@@ -42,12 +61,14 @@ extension Project {
     }
     
     var completionAmount: Double {
-        let originalItems = items?.allObjects as? [Item] ?? [] // Stwórz tablicę typów Item
-        guard originalItems.isEmpty == false else { return 0 } // Jeśli tablica jest pusta, zwróc 0
+        // Stwórz tablicę typów Item
+        let originalItems = items?.allObjects as? [Item] ?? []
+        // Jeśli tablica jest pusta, zwróc 0
+        guard originalItems.isEmpty == false else { return 0 }
+        // Filtrowanie tablicy typów Item, na te, których parametr completed == true
+        let completedItems = originalItems.filter(\.completed)
         
-        let completedItems = originalItems.filter(\.completed) // Filtrowanie tablicy typów Item, na te, których parametr completed == true
-        
-        return Double(completedItems.count) / Double(originalItems.count) // Ich stosunek do siebie
+        return Double(completedItems.count) / Double(originalItems.count) 
     }
     
     static var example: Project {

@@ -4,10 +4,11 @@
 //
 //  Created by Tomasz Ogrodowski on 04/04/2022.
 //
+// swiftlint:disable trailing_whitespace
 
 import Foundation
 
-extension Item { // Rozszerzenie klasy Item tak by nie musieć bawic się w rozpakowywanie optionali
+extension Item {
     
     enum SortOrder {
         case optimized, title, creationDate

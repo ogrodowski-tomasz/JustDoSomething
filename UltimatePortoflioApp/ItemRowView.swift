@@ -4,6 +4,7 @@
 //
 //  Created by Tomasz Ogrodowski on 06/04/2022.
 //
+// swiftlint:disable trailing_whitespace
 
 import SwiftUI
 
@@ -28,12 +29,19 @@ struct ItemRowView: View {
         }
         // Two questions:
         // 1. Why using .clear Image if priority is not == 3?
-        // We could have returned nothing there. "If it doesnt match anything, send nothing and we are done", but we want to place this systemImage in a label. If there were no icon, text label would be on the leading edge, it wouldnt be inline with item with priority of 3 etc.
+        // We could have returned nothing there.
+        // "If it doesnt match anything, send nothing and we are done", but we want to place this systemImage in a label.
+        // If there were no icon, text label would be on the leading edge, it wouldnt be inline with item with priority of 3 etc.
+        
         // 2. Why is this a computed property instead of method?
-        // We could have used method, it would be fine. Using computed property matches the way we created the body property. It is the same thing, it looks the same. Both of them use some structure inside there, no fancy complex logic, just some view structure.
+        // We could have used method, it would be fine.
+        // Using computed property matches the way we created the body property.
+        // It is the same thing, it looks the same.
+        // Both of them use some structure inside there, no fancy complex logic, just some view structure.
     }
     
-    var label: Text { // Creating custom label to be read by VoiceOver
+    // Creating custom label to be read by VoiceOver
+    var label: Text {
         if item.completed { return Text("\(item.itemTitle), completed.") }
         else if item.priority == 3 { return Text("\(item.itemTitle), high priority.") }
         else { return Text(item.itemTitle) }
