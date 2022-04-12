@@ -10,7 +10,7 @@ import Foundation
 
 struct Award: Decodable, Identifiable {
     
-    var id: String { name } // Identifier for struct will be its name
+    var id: String { name }
     let name: String
     let description: String
     let color: String
@@ -18,6 +18,6 @@ struct Award: Decodable, Identifiable {
     let value: Int
     let image: String
     
-    static let allAwards = Bundle.main.decode([Award].self, from: "Awards.json") // Decoding all awards from JSON file
+    static let allAwards = Bundle.main.decode([Award].self, from: "Awards.json") 
     static let example = allAwards[0] // Example award
 }

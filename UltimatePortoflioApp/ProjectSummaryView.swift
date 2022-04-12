@@ -30,9 +30,3 @@ struct ProjectSummaryView: View {
         .accessibilityLabel(project.label)
     }
 }
-
-//struct ProjectSummaryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProjectSummaryView()
-//    }
-//}

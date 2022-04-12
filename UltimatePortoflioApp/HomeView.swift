@@ -21,22 +21,17 @@ struct HomeView: View {
     
     let items: FetchRequest<Item>
     
-    init() { // We want to fetch only the top10 so we have to make custom initializer
+    init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         
-        // We want to show only uncompleted items from open projects
         let completedPredicate = NSPredicate(format: "completed = false")
         let openPredicate = NSPredicate(format: "project.closed = false")
-        // Making a compound of two predicates with the "and"
         let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
-        
         request.predicate = compoundPredicate
         
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \Item.priority, ascending: false)
         ]
-        
-        // Limiting the request to show 10 items
         request.fetchLimit = 10
         items = FetchRequest(fetchRequest: request)
     }
@@ -57,9 +52,7 @@ struct HomeView: View {
                         .fixedSize(horizontal: false, vertical: true)
                     }
                     VStack(alignment: .leading) {
-                        // This will contain max first 3 values in items
                         ItemListView(title: "Up next", items: items.wrappedValue.prefix(3))
-                        // This will contain everything else but 3 first values
                         ItemListView(title: "More to explore", items: items.wrappedValue.dropFirst(3))
                     }
                     .padding(.horizontal)
@@ -70,12 +63,6 @@ struct HomeView: View {
         }
     }
 }
-
-//Button("Add Data") {
-//    dataController.deleteAll()
-//    try? dataController.createSampleData()
-//}
-
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()

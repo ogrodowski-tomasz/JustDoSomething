@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @SceneStorage("selectedView") var selectedView: String? // "selectedView" is key for userDefault to match.
+    @SceneStorage("selectedView") var selectedView: String? 
     
     var body: some View {
         TabView(selection: $selectedView) {

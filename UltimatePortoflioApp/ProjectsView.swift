@@ -11,13 +11,14 @@ import SwiftUI
 struct ProjectsView: View {
     static let openTag: String? = "Open"
     static let closedTag: String? = "Closed"
+    
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State private var  showingSortOrder = false
     @State private var sortOrder = Item.SortOrder.optimized
-    // Ten widok ma pokazywać 'Projects' parametrycznie w zależności od tego czy są otwarte czy zamknięte
+    
     let showClosedProjects: Bool
-    // Nie możemy wykonać typowego żądania fetchu dopóki nie wiemy konkretnie czrgo szukamy (open czy closed project?)
     let projects: FetchRequest<Project>
     
     init(showClosedProjects: Bool) {
@@ -26,10 +27,9 @@ struct ProjectsView: View {
         projects = FetchRequest<Project>(
             entity: Project.entity(),
             sortDescriptors: [
-                NSSortDescriptor(keyPath: \Project.creationDay, ascending: false) // sorting method by the creationDate
+                NSSortDescriptor(keyPath: \Project.creationDay, ascending: false)
             ],
             predicate: NSPredicate(format: "closed = %d", showClosedProjects))
-        // %d oznacza placeholder. Gdy ruszymy program to będzie to oznaczało closed = true lub closed = false w zaleznosci od wartości showClosedPRojects
     }
     
     var projectsList: some View {
@@ -79,8 +79,6 @@ struct ProjectsView: View {
     var body: some View {
         NavigationView {
             Group {
-                // Why group? Because if we wouldn't have any projects added, we would want to show a text.
-                // Simple usage of "if" condition without group wouldn't be accepted, becuase we cant add modifiers to an condition...
                 if projects.wrappedValue.isEmpty {
                     Text("There are no projects yet to be shown!")
                         .foregroundColor(.secondary)

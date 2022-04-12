@@ -30,12 +30,10 @@ extension Project {
     var projectDetail: String { detail ?? "" }
     var projectColor: String { color ?? "Light Blue" }
     
-    var label: LocalizedStringKey { LocalizedStringKey("\(projectTitle), \(projectItems.count) items, \(completionAmount * 100, specifier: "%g")% complete.") }
+    var label: LocalizedStringKey { LocalizedStringKey("\(projectTitle), \(projectItems.count) items, \(completionAmount * 100, specifier: "%g")% complete.") } // swiftlint:disable:this line_length
     
     var projectItems: [Item] {
         items?.allObjects as? [Item] ?? []
-        // When u add "to many" relationship in CoreData, we get our items back as a SET rather than ARRAY. '.allObjects' is making them as an array.
-        // Swift thinks this set (created by allObjects) is a set of any type. We must tell swift that its a Array of Items
     }
     
     var projectItemsDefaultSorted: [Item] {
@@ -61,11 +59,8 @@ extension Project {
     }
     
     var completionAmount: Double {
-        // Stwórz tablicę typów Item
         let originalItems = items?.allObjects as? [Item] ?? []
-        // Jeśli tablica jest pusta, zwróc 0
         guard originalItems.isEmpty == false else { return 0 }
-        // Filtrowanie tablicy typów Item, na te, których parametr completed == true
         let completedItems = originalItems.filter(\.completed)
         
         return Double(completedItems.count) / Double(originalItems.count) 

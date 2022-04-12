@@ -4,7 +4,6 @@
 //
 //  Created by Tomasz Ogrodowski on 06/04/2022.
 //
-// swiftlint:disable trailing_whitespace
 
 import SwiftUI
 

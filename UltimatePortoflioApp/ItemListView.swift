@@ -11,7 +11,6 @@ import SwiftUI
 struct ItemListView: View {
     
     let title: LocalizedStringKey
-    // LocalizedStringKey is for Localizating the app
     let items: FetchedResults<Item>.SubSequence
     
     var itemList: some View {
@@ -43,8 +42,10 @@ struct ItemListView: View {
     }
     
     var body: some View {
-        if items.isEmpty { EmptyView() }
-        else {
+        if items.isEmpty {
+            EmptyView()
+            
+        } else {
             Text(title)
                 .font(.headline)
                 .foregroundColor(.secondary)
@@ -54,9 +55,3 @@ struct ItemListView: View {
         }
     }
 }
-
-//struct ItemListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ItemListView()
-//    }
-//}

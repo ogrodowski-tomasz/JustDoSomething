@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct EditProjectView: View {
-    
     let project: Project
     
     @EnvironmentObject var dataController: DataController
@@ -24,9 +23,7 @@ struct EditProjectView: View {
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
     ]
-    
-    
-    
+
     init(project: Project) {
         self.project = project
         
@@ -34,6 +31,7 @@ struct EditProjectView: View {
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
     }
+    
     var body: some View {
         Form {
             Section(header: Text("Basic settings")) {
@@ -47,7 +45,7 @@ struct EditProjectView: View {
                 }
                 .padding(.vertical)
             }
-            
+            // swiftlint:disable:next line_length
             Section(footer: Text("Closing a project moves it from the Open to Closed tab; deleting it removes the project entirely.")) {
                 Button(project.closed ? "Reopen this project" : "Close this project") {
                     project.closed.toggle()
@@ -65,23 +63,21 @@ struct EditProjectView: View {
         .alert(isPresented: $showingDeleteConfirm) {
             Alert(
                 title: Text("Delete project?"),
-                message: Text("Are you sure you want to delete this project? You will also delete all the items it contains"), //swiftlint:disable:this line_length
+                // swiftlint:disable:next line_length
+                message: Text("Are you sure you want to delete this project? You will also delete all the items it contains"),
                 primaryButton: .default(Text("Delete"), action: delete),
                 secondaryButton: .cancel())
         }
     }
-    
     func update() {
         project.title = title
         project.detail = detail
         project.color = color
     }
-    
     func delete() {
         dataController.delete(project)
         presetationMode.wrappedValue.dismiss()
     }
-    
     func colorButton(for item: String) -> some View {
         ZStack {
             Color(item)
@@ -100,13 +96,11 @@ struct EditProjectView: View {
         }
         .accessibilityElement(children: .ignore)
         .accessibilityAddTraits(
-            // Letting VoiceOver know what kind of things he is dealing with rn
             item == color
             ? [.isButton, .isSelected]
             : .isButton
         )
         .accessibilityLabel(LocalizedStringKey(item))
-        // Underlying value is in English, but read value will be english or polish
     }
 }
 
