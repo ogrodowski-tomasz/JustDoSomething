@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A struct that manages Award type of data and decoding it from json file from decode
 struct Award: Decodable, Identifiable {
     
     var id: String { name }
@@ -18,6 +19,7 @@ struct Award: Decodable, Identifiable {
     let value: Int
     let image: String
     
-    static let allAwards = Bundle.main.decode([Award].self, from: "Awards.json") 
-    static let example = allAwards[0] // Example award
+    static let allAwards = Bundle.main.decode([Award].self, from: "Awards.json")
+    // Example award
+    static let example = allAwards[0]
 }

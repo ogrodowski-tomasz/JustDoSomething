@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+/// View shown on HomeView with links to editing an item.
+///
+/// View is used on HomeView to show items with high priority.
+/// Contains an Circle stroke with project color and
+/// basic information about item
 struct ItemListView: View {
     
     let title: LocalizedStringKey
@@ -44,7 +49,6 @@ struct ItemListView: View {
     var body: some View {
         if items.isEmpty {
             EmptyView()
-            
         } else {
             Text(title)
                 .font(.headline)

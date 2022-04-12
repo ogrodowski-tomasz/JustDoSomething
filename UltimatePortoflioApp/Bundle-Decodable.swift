@@ -9,6 +9,10 @@
 
 import Foundation
 
+/// Extension on Bundle that let us:
+/// search for a certain json file in bundle,
+/// decode it,
+/// put it into any given type
 extension Bundle {
     func decode<T: Decodable>(
         _ type: T.Type,

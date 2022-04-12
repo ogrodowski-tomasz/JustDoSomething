@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Extension on Item entity that provides us nil coallesed values of its parameters
+/// and lets us create example data
 extension Item {
     
     enum SortOrder {

@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+
+/// View used on HomeView that shows a summary of certain project 
 struct ProjectSummaryView: View {
     
     @ObservedObject var project: Project

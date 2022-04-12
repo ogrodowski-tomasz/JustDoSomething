@@ -18,6 +18,8 @@ struct EditItemView: View {
     @State private var priority: Int
     @State private var completed: Bool
     
+    /// Initializing a view with state wrapped values from a certain item
+    /// - Parameter item: item chosen by user, which he wants to edit
     init(item: Item) {
         self.item = item
         _title = State(wrappedValue: item.itemTitle)
@@ -49,6 +51,8 @@ struct EditItemView: View {
         .navigationTitle("Edit Item")
         .onDisappear(perform: dataController.save)
     }
+    
+    /// Announcing that item will change and then updating item's values
     func update() {
         item.project?.objectWillChange.send()
         item.title = title

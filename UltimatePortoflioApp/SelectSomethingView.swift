@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Simple View shown when phone is set to horizontal view
 struct SelectSomethingView: View {
     var body: some View {
         Text("Please select something form the menu to begin.")

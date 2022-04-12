@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 
+/// Extension on Project entity
 extension Project {
     
     static let colors = [
@@ -36,6 +37,7 @@ extension Project {
         items?.allObjects as? [Item] ?? []
     }
     
+    /// Default sorting order
     var projectItemsDefaultSorted: [Item] {
         return projectItems.sorted { first, second in
             if first.completed == false {
@@ -58,6 +60,7 @@ extension Project {
         }
     }
     
+    /// All items to completed items ratio
     var completionAmount: Double {
         let originalItems = items?.allObjects as? [Item] ?? []
         guard originalItems.isEmpty == false else { return 0 }
@@ -66,6 +69,7 @@ extension Project {
         return Double(completedItems.count) / Double(originalItems.count) 
     }
     
+    /// Example project
     static var example: Project {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext
@@ -79,6 +83,9 @@ extension Project {
         return project
     }
     
+    /// Sorting items
+    /// - Parameter sortOrder: enum that contains number of sorting methods
+    /// - Returns: Array of sorted items
     func projectItems(using sortOrder: Item.SortOrder) -> [Item] {
         switch sortOrder {
         case .optimized:

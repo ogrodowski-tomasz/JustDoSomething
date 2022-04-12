@@ -8,6 +8,12 @@
 
 import SwiftUI
 
+/// View shown on Opened/Closed tabs
+/// that define single row of item in terms of its
+/// priority and completion
+///
+/// High priority items and completed items have
+/// their own system image
 struct ItemRowView: View {
     
     @ObservedObject var project: Project
@@ -25,6 +31,10 @@ struct ItemRowView: View {
                 .foregroundColor(.clear)
         }
     }
+    
+    /// Label of item row.
+    ///
+    /// Helps VoiceOver be more understandable
     var label: Text {
         if item.completed {
             return Text("\(item.itemTitle), completed.")

@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// View that shows projects that are opened or closed.
 struct ProjectsView: View {
     static let openTag: String? = "Open"
     static let closedTag: String? = "Closed"
@@ -21,6 +22,9 @@ struct ProjectsView: View {
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
     
+    /// Initializer that lets us choose if we want
+    /// to show open or closed projects
+    /// - Parameter showClosedProjects: Whether to show open or close project
     init(showClosedProjects: Bool) {
         self.showClosedProjects = showClosedProjects
         
@@ -32,6 +36,10 @@ struct ProjectsView: View {
             predicate: NSPredicate(format: "closed = %d", showClosedProjects))
     }
     
+    /// View that shows all projects (based on 'open' parameter)
+    /// with their items
+    ///
+    /// View also lets us add new item to certain open project
     var projectsList: some View {
         List {
             ForEach(projects.wrappedValue) { project in
@@ -56,6 +64,7 @@ struct ProjectsView: View {
         .listStyle(InsetGroupedListStyle())
     }
     
+    /// Toolbar button letting user add new project
     var addProjectToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
             if showClosedProjects == false {
@@ -66,6 +75,7 @@ struct ProjectsView: View {
         }
     }
     
+    /// Toolbar button letting user choose custom sorting order
     var sortOrderToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             Button {
@@ -76,6 +86,9 @@ struct ProjectsView: View {
         }
     }
     
+    /// View that shows all projects basing on its 'Open' property
+    ///
+    /// If there are no projects to shown, app will show message 
     var body: some View {
         NavigationView {
             Group {

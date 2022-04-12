@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// Header of single project on ProjectsView
 struct ProjectHeaderView: View {
     @ObservedObject var project: Project
      

@@ -23,7 +23,9 @@ struct EditProjectView: View {
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
     ]
-
+    
+    /// Initializing project that user selected and preparing it to edit
+    /// - Parameter project: selected project
     init(project: Project) {
         self.project = project
         
@@ -69,15 +71,23 @@ struct EditProjectView: View {
                 secondaryButton: .cancel())
         }
     }
+    
+    /// Updates Core Data with edited properties
     func update() {
         project.title = title
         project.detail = detail
         project.color = color
     }
+    
+    /// Deletes entire project and its items. After that the view is dismissed
     func delete() {
         dataController.delete(project)
         presetationMode.wrappedValue.dismiss()
     }
+    
+    ///  View that show a square filled with given color
+    /// - Parameter item: Name of color
+    /// - Returns: Square filled with given color and optionally with checkmark on a selected one 
     func colorButton(for item: String) -> some View {
         ZStack {
             Color(item)

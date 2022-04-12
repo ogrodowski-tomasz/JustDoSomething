@@ -46,12 +46,22 @@ struct AwardsView: View {
         .alert(isPresented: $showingAlertDetails, content: getAwardAlert)
     }
     
+    /// Checking if user earned certain award and gives it a color.
+    /// - Parameter award: certain award.
+    /// - Returns: Color based on Bool value of hasEarned method.
     func color(for award: Award) -> Color {
         dataController.hasEarned(award: award) ? Color(award.color) : Color.secondary.opacity(0.5)
     }
+    
+    /// Support for VoiceOver in managing certain Awards.
+    /// - Parameter award: current award.
+    /// - Returns: Text based on Bool value of hasEarned method.
     func label(for award: Award) -> Text {
         Text(dataController.hasEarned(award: award) ? "Unlocked: \(award.name)" : "Locked")
     }
+    
+    /// Managing alerts with cetrain awards
+    /// - Returns: Alert with parameters based on Bool value of hasEarned method.
     func getAwardAlert() -> Alert {
         if dataController.hasEarned(award: selectedAward) {
             return Alert(
