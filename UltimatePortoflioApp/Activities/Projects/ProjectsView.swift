@@ -88,7 +88,7 @@ struct ProjectsView: View {
     
     /// View that shows all projects basing on its 'Open' property
     ///
-    /// If there are no projects to shown, app will show message 
+    /// If there are no projects to shown, app will show message
     var body: some View {
         NavigationView {
             Group {

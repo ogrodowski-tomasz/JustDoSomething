@@ -4,8 +4,7 @@
 //
 //  Created by Tomasz Ogrodowski on 04/04/2022.
 //
-// swiftlint:disable trailing_whitespace
-
+// swiftlint:disable trailing_whitespace 
 import Foundation
 import SwiftUI
 
@@ -71,7 +70,7 @@ extension Project {
     
     /// Example project
     static var example: Project {
-        let controller = DataController(inMemory: true)
+        let controller = DataController.preview
         let viewContext = controller.container.viewContext
         
         let project = Project(context: viewContext)

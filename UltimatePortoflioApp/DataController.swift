@@ -21,7 +21,8 @@ class DataController: ObservableObject {
     /// Defaults to permanent storage.
     /// - Parameter inMemory: Whether to store this data in temporary memory or not.
         init(inMemory: Bool = false) {
-            container = NSPersistentCloudKitContainer(name: "Main")
+            container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
+            // "I've seen this model before. I will look for it in cache"
             
             // For testing and previewing purposes, we create a temporary,
             // in-memory database by writing to /dev/null so our data is
@@ -46,6 +47,22 @@ class DataController: ObservableObject {
         }
         return dataController
     }()
+    
+    /// Both tests and app itself creates an instance of DataController.
+    /// So when the deleting method is called swift doesn't know which one you mention.
+    /// It will load the model data ONCE (that's why it's static) and store it in cache
+    /// for other people to use.
+    static let model: NSManagedObjectModel = {
+        guard let url = Bundle.main.url(forResource: "Main", withExtension: "momd") else {
+            fatalError("Failed to locate model file.")
+        }
+        guard let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
+            fatalError("Failed to load model file.")
+        }
+        return managedObjectModel
+    }() // do it once and cache it for using it
+        // later on. We want NSClKtCont to use that.
+    
     
     /// Creates example projects and items to make manual testing easier.
     ///  - Throws: An NSError sent from calling save() on the NSManagedObjectContext.
@@ -97,6 +114,9 @@ class DataController: ObservableObject {
         _ = try? container.viewContext.execute(batchDeleteRequest2)
     }
     
+    /// Counting how many units of data is in our Core Data
+    /// - Parameter fetchRequest: request of fetching some kind of type from Core Data
+    /// - Returns: number of items in given fetch request
     func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }

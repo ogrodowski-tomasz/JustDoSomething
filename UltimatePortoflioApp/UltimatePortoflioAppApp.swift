@@ -14,7 +14,7 @@ struct UltimatePortoflioAppApp: App {
     
     init() {
         let dataController = DataController()
-        _dataController = StateObject(wrappedValue: dataController) // Wstawiamy 
+        _dataController = StateObject(wrappedValue: dataController)
     }
     
     var body: some Scene {
