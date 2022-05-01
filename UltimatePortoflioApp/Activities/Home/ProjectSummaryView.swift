@@ -4,16 +4,14 @@
 //
 //  Created by Tomasz Ogrodowski on 10/04/2022.
 //
-// swiftlint:disable trailing_whitespace
 
 import SwiftUI
 
-
-/// View used on HomeView that shows a summary of certain project 
+/// View used on HomeView that shows a summary of certain project
 struct ProjectSummaryView: View {
-    
+
     @ObservedObject var project: Project
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("\(project.projectItems.count) items")

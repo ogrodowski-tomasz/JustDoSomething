@@ -4,7 +4,6 @@
 //
 //  Created by Tomasz Ogrodowski on 30/03/2022.
 //
-// swiftlint:disable trailing_whitespace
 
 import CoreData
 import SwiftUI
@@ -14,7 +13,7 @@ import SwiftUI
 class DataController: ObservableObject {
     /// The lone CloudKit container used to store all our data
     let container: NSPersistentCloudKitContainer
-    
+
     /// Initializes a data controller, either in memory (for temporary use such as testing and previewing),
     /// or on permanent storage (for use in regular app runs.)
     ///
@@ -23,7 +22,7 @@ class DataController: ObservableObject {
         init(inMemory: Bool = false) {
             container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
             // "I've seen this model before. I will look for it in cache"
-            
+
             // For testing and previewing purposes, we create a temporary,
             // in-memory database by writing to /dev/null so our data is
             // destroyed after the app finishes running.
@@ -36,10 +35,10 @@ class DataController: ObservableObject {
                 }
             }
         }
-    
+
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
-        
+
         do {
             try dataController.createSampleData()
         } catch {
@@ -47,7 +46,7 @@ class DataController: ObservableObject {
         }
         return dataController
     }()
-    
+
     /// Both tests and app itself creates an instance of DataController.
     /// So when the deleting method is called swift doesn't know which one you mention.
     /// It will load the model data ONCE (that's why it's static) and store it in cache
@@ -62,8 +61,7 @@ class DataController: ObservableObject {
         return managedObjectModel
     }() // do it once and cache it for using it
         // later on. We want NSClKtCont to use that.
-    
-    
+
     /// Creates example projects and items to make manual testing easier.
     ///  - Throws: An NSError sent from calling save() on the NSManagedObjectContext.
     func createSampleData() throws {
@@ -75,7 +73,7 @@ class DataController: ObservableObject {
             project.items = []
             project.creationDay = Date()
             project.closed = Bool.random()
-            
+
             for itemCounter in 1...10 {
                 let item = Item(context: viewContext)
                 item.title = "Item \(itemCounter)"
@@ -87,7 +85,7 @@ class DataController: ObservableObject {
         }
         try viewContext.save()
     }
-    
+
     /// Saves out Core Data context only if there are changes. This silently ignores
     /// any errors caused by saving. Don't mention it because
     /// our attributes are optional.
@@ -96,31 +94,30 @@ class DataController: ObservableObject {
             try? container.viewContext.save()
         }
     }
-    
+
     /// Deletes an given object from our Core Data
     /// - Parameter object: an object from our Core Data
     func delete(_ object: NSManagedObject) {
         container.viewContext.delete(object)
     }
-    
-    
+
     func deleteAll() {
         let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
         let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
         _ = try? container.viewContext.execute(batchDeleteRequest1)
-        
+
         let fetchRequest2: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
         let batchDeleteRequest2 = NSBatchDeleteRequest(fetchRequest: fetchRequest2)
         _ = try? container.viewContext.execute(batchDeleteRequest2)
     }
-    
+
     /// Counting how many units of data is in our Core Data
     /// - Parameter fetchRequest: request of fetching some kind of type from Core Data
     /// - Returns: number of items in given fetch request
     func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }
-    
+
     func hasEarned(award: Award) -> Bool {
         switch award.criterion {
         case "items":

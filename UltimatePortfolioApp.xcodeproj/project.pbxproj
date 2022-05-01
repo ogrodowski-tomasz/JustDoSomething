@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4032EF9F281ED7D100E2B177 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032EF9E281ED7D100E2B177 /* ExtensionTests.swift */; };
+		4032EFA4281ED93100E2B177 /* DecodableDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 4032EFA3281ED93100E2B177 /* DecodableDictionary.json */; };
+		4032EFA6281ED95E00E2B177 /* DecodableString.json in Resources */ = {isa = PBXBuildFile; fileRef = 4032EFA5281ED95E00E2B177 /* DecodableString.json */; };
+		4032EFA8281EDDF000E2B177 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032EFA7281EDDF000E2B177 /* PerformanceTests.swift */; };
 		4038CBDC27FF561200AE5BDF /* SelectSomethingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4038CBDB27FF561200AE5BDF /* SelectSomethingView.swift */; };
 		403EE22428009995006D20B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 403EE22628009995006D20B1 /* Localizable.strings */; };
 		403EE22828009A21006D20B1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 403EE22A28009A21006D20B1 /* Localizable.stringsdict */; };
@@ -51,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4032EF9E281ED7D100E2B177 /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
+		4032EFA3281ED93100E2B177 /* DecodableDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableDictionary.json; sourceTree = "<group>"; };
+		4032EFA5281ED95E00E2B177 /* DecodableString.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableString.json; sourceTree = "<group>"; };
+		4032EFA7281EDDF000E2B177 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		4038CBDB27FF561200AE5BDF /* SelectSomethingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSomethingView.swift; sourceTree = "<group>"; };
 		403EE22528009995006D20B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		403EE227280099A4006D20B1 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -108,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4032EFA0281ED8E900E2B177 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				4032EFA3281ED93100E2B177 /* DecodableDictionary.json */,
+				4032EFA5281ED95E00E2B177 /* DecodableString.json */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		40935B412805AC16001F5114 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,11 +201,14 @@
 		40935B4D2805B9A7001F5114 /* UltimatePortfolioAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				4032EFA0281ED8E900E2B177 /* Fixtures */,
 				40E088832806F14200E0BC78 /* DevelopmentTests.swift */,
 				40E0887F2806CF9200E0BC78 /* ProjectTests.swift */,
 				40E088812806D7E700E0BC78 /* AwardTests.swift */,
 				40935B4E2805B9A7001F5114 /* UltimatePortfolioAppTests.swift */,
 				40935B552805BBE2001F5114 /* AssetTest.swift */,
+				4032EF9E281ED7D100E2B177 /* ExtensionTests.swift */,
+				4032EFA7281EDDF000E2B177 /* PerformanceTests.swift */,
 			);
 			path = UltimatePortfolioAppTests;
 			sourceTree = "<group>";
@@ -319,6 +339,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4032EFA6281ED95E00E2B177 /* DecodableString.json in Resources */,
+				4032EFA4281ED93100E2B177 /* DecodableDictionary.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +376,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >dev/null; then\n    swiftlint\nelse\n    echo \"warning: Swiftlint not installed, download from https://github.com/realm/Swiftlint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: Swiftlint not installed, download from https://github.com/realm/Swiftlint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -363,9 +385,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4032EFA8281EDDF000E2B177 /* PerformanceTests.swift in Sources */,
 				40935B562805BBE2001F5114 /* AssetTest.swift in Sources */,
 				40E088822806D7E700E0BC78 /* AwardTests.swift in Sources */,
 				40935B4F2805B9A7001F5114 /* UltimatePortfolioAppTests.swift in Sources */,
+				4032EF9F281ED7D100E2B177 /* ExtensionTests.swift in Sources */,
 				40E088802806CF9200E0BC78 /* ProjectTests.swift in Sources */,
 				40E088842806F14200E0BC78 /* DevelopmentTests.swift in Sources */,
 			);
