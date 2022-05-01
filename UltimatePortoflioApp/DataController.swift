@@ -33,6 +33,15 @@ class DataController: ObservableObject {
                 if let error = error {
                     fatalError("Fatal error loading store: \(error.localizedDescription)")
                 }
+
+                // Checking if we're in debugging and then chechking if the launch argument contains
+                // a value thta triggers the testing mode. If yes - wipe everything out
+                #if DEBUG
+                if CommandLine.arguments.contains("enable-testing") {
+                    self.deleteAll()
+                    UIView.setAnimationsEnabled(false)
+                }
+                #endif
             }
         }
 
