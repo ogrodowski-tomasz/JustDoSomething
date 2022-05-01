@@ -16,7 +16,7 @@ import SwiftUI
 struct ItemListView: View {
     
     let title: LocalizedStringKey
-    let items: FetchedResults<Item>.SubSequence
+    let items: ArraySlice<Item>
     
     var itemList: some View {
         ForEach(items) { item in

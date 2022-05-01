@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4005D714281F0B080035E00D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4005D713281F0B080035E00D /* HomeViewModel.swift */; };
+		4005D716281F13720035E00D /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4005D715281F13720035E00D /* ItemRowViewModel.swift */; };
 		4032EF9F281ED7D100E2B177 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032EF9E281ED7D100E2B177 /* ExtensionTests.swift */; };
 		4032EFA4281ED93100E2B177 /* DecodableDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 4032EFA3281ED93100E2B177 /* DecodableDictionary.json */; };
 		4032EFA6281ED95E00E2B177 /* DecodableString.json in Resources */ = {isa = PBXBuildFile; fileRef = 4032EFA5281ED95E00E2B177 /* DecodableString.json */; };
@@ -65,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4005D713281F0B080035E00D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4005D715281F13720035E00D /* ItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowViewModel.swift; sourceTree = "<group>"; };
 		4032EF9E281ED7D100E2B177 /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		4032EFA3281ED93100E2B177 /* DecodableDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableDictionary.json; sourceTree = "<group>"; };
 		4032EFA5281ED95E00E2B177 /* DecodableString.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableString.json; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				403EE230280309B8006D20B1 /* ItemListView.swift */,
 				403EE23228030A99006D20B1 /* ProjectSummaryView.swift */,
 				4082E560281EF9B4007CE084 /* ProjectsViewModel.swift */,
+				4005D713281F0B080035E00D /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				4038CBDB27FF561200AE5BDF /* SelectSomethingView.swift */,
 				409DC7F927FDA66E003720DC /* ProjectHeaderView.swift */,
 				409DC7F527FD99E8003720DC /* ItemRowView.swift */,
+				4005D715281F13720035E00D /* ItemRowViewModel.swift */,
 				409DC7F327FD957B003720DC /* EditItemView.swift */,
 				409DC7FD27FDB339003720DC /* EditProjectView.swift */,
 			);
@@ -472,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C27D4E27FB362F0057B85D /* ProjectsView.swift in Sources */,
+				4005D714281F0B080035E00D /* HomeViewModel.swift in Sources */,
 				40A5CCDE28005AB3007E44F7 /* Color-Additions.swift in Sources */,
 				409DC7FA27FDA66E003720DC /* ProjectHeaderView.swift in Sources */,
 				40A5CCD628003DBB007E44F7 /* Bundle-Decodable.swift in Sources */,
@@ -482,6 +489,7 @@
 				40A5CCDC2800464F007E44F7 /* AwardsView.swift in Sources */,
 				40765FCC27FB69B300F7DAB4 /* Project-CoreDataHelpers.swift in Sources */,
 				409DC7FE27FDB339003720DC /* EditProjectView.swift in Sources */,
+				4005D716281F13720035E00D /* ItemRowViewModel.swift in Sources */,
 				403EE23328030A99006D20B1 /* ProjectSummaryView.swift in Sources */,
 				40F5CBD327F4C6C700672AF8 /* DataController.swift in Sources */,
 				409DC7F627FD99E8003720DC /* ItemRowView.swift in Sources */,
