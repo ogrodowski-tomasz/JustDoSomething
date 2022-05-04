@@ -26,6 +26,7 @@
 		4082E561281EF9B4007CE084 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4082E560281EF9B4007CE084 /* ProjectsViewModel.swift */; };
 		40935B4F2805B9A7001F5114 /* UltimatePortfolioAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40935B4E2805B9A7001F5114 /* UltimatePortfolioAppTests.swift */; };
 		40935B562805BBE2001F5114 /* AssetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40935B552805BBE2001F5114 /* AssetTest.swift */; };
+		409CA2502822A6C5004EC149 /* UnlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409CA24F2822A6C5004EC149 /* UnlockManager.swift */; };
 		409DC7F427FD957B003720DC /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409DC7F327FD957B003720DC /* EditItemView.swift */; };
 		409DC7F627FD99E8003720DC /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409DC7F527FD99E8003720DC /* ItemRowView.swift */; };
 		409DC7F827FD9DB2003720DC /* Binding-onChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409DC7F727FD9DB2003720DC /* Binding-onChange.swift */; };
@@ -91,6 +92,8 @@
 		40935B4C2805B9A7001F5114 /* UltimatePortfolioAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltimatePortfolioAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40935B4E2805B9A7001F5114 /* UltimatePortfolioAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimatePortfolioAppTests.swift; sourceTree = "<group>"; };
 		40935B552805BBE2001F5114 /* AssetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTest.swift; sourceTree = "<group>"; };
+		409CA24F2822A6C5004EC149 /* UnlockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockManager.swift; sourceTree = "<group>"; };
+		409CA2512822A98D004EC149 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		409DC7F327FD957B003720DC /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		409DC7F527FD99E8003720DC /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		409DC7F727FD9DB2003720DC /* Binding-onChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-onChange.swift"; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 				40935B422805AC1C001F5114 /* Localization */,
 				40935B412805AC16001F5114 /* Extensions */,
 				40F5CBD227F4C6C700672AF8 /* DataController.swift */,
+				409CA24F2822A6C5004EC149 /* UnlockManager.swift */,
+				409CA2512822A98D004EC149 /* Configuration.storekit */,
 				40F5CBC127F4B7F700672AF8 /* UltimatePortoflioAppApp.swift */,
 				40F5CBC327F4B7F700672AF8 /* ContentView.swift */,
 				40F5CBC527F4B7F900672AF8 /* Assets.xcassets */,
@@ -482,6 +487,7 @@
 				40A5CCDE28005AB3007E44F7 /* Color-Additions.swift in Sources */,
 				409DC7FA27FDA66E003720DC /* ProjectHeaderView.swift in Sources */,
 				40A5CCD628003DBB007E44F7 /* Bundle-Decodable.swift in Sources */,
+				409CA2502822A6C5004EC149 /* UnlockManager.swift in Sources */,
 				40F5CBD127F4B8C700672AF8 /* Main.xcdatamodeld in Sources */,
 				403EE231280309B8006D20B1 /* ItemListView.swift in Sources */,
 				4038CBDC27FF561200AE5BDF /* SelectSomethingView.swift in Sources */,

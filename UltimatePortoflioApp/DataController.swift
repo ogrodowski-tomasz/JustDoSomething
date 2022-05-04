@@ -16,12 +16,32 @@ class DataController: ObservableObject {
     /// The lone CloudKit container used to store all our data
     let container: NSPersistentCloudKitContainer
 
+    /// The UserDefauls suite where we're saving user data
+    ///
+    /// Creating it not as a singleton to be able to test unlocking premium version.
+    /// If 'UserDefaults.standard' is used, Hidden Dependency is created. That code would
+    /// read some external data that we can't control in tests, we have no idea what it's reading.
+    /// We could also prepare default behaviour. Not done, because will not be tested in that app.
+    let defaults: UserDefaults
+
+    /// Loads and saves whether our premium unlock has been purchased.
+    var fullVersionUnlocked: Bool {
+        get {
+            defaults.bool(forKey: "fullVersionUnlocked")
+        }
+        set {
+            defaults.set(newValue, forKey: "fullVersionUnlocked")
+        }
+    }
+
     /// Initializes a data controller, either in memory (for temporary use such as testing and previewing),
     /// or on permanent storage (for use in regular app runs.)
     ///
     /// Defaults to permanent storage.
     /// - Parameter inMemory: Whether to store this data in temporary memory or not.
-        init(inMemory: Bool = false) {
+    /// - Parameter defaults: The UserDefaults suite where user data should be stored.
+    init(inMemory: Bool = false, defaults: UserDefaults = .standard) {
+            self.defaults = defaults
             container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
             // "I've seen this model before. I will look for it in cache"
 
