@@ -4,7 +4,6 @@
 //
 //  Created by Tomasz Ogrodowski on 04/04/2022.
 //
-// swiftlint:disable trailing_whitespace
 
 import CoreData
 import SwiftUI
@@ -18,11 +17,11 @@ struct HomeView: View {
         let viewModel = ViewModel(dataController: dataController)
         _viewModel = StateObject(wrappedValue: viewModel)
     }
-    
+
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
     }
-    
+
     var body: some View {
         NavigationView {
             ScrollView {
