@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import CoreSpotlight
 import SwiftUI
 
 struct HomeView: View {
@@ -25,6 +26,16 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                if let item = viewModel.selectedItem {
+                    NavigationLink(
+                        destination: EditItemView(item: item),
+                        tag: item,
+                        selection: $viewModel.selectedItem,
+                        label: EmptyView.init
+                    )
+                    .id(item)
+                }
+
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: projectRows) {
@@ -45,6 +56,23 @@ struct HomeView: View {
             .toolbar {
                 Button("Add Data", action: viewModel.addSampleData)
             }
+            // If app is launched from Spotlight with certain Item.
+            // CSSearchableItemActionType - App is being launched from Spotlight
+            .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
+        }
+    }
+
+    ///
+    func loadSpotlightItem(_ userActivity: NSUserActivity) {
+        /// It has no idea how the data got to Spotlight, it doesn't care about that.
+        /// The idea is: "I'm talking to Spotlight for some reason / i've been launched by Spotlight.
+        /// What should I do?"
+
+        /// Getting the unique ID from user activity's info. [Key: value]
+        /// CSSearchableItemActivityIdentifier is the key and the ID is the value of this dictionary.
+        /// This gets from Spotlight the unique ID for item we tapped in Spotlight.
+        if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+            viewModel.selectItem(with: uniqueIdentifier)
         }
     }
 }

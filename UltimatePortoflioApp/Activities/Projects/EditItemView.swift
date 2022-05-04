@@ -48,7 +48,7 @@ struct EditItemView: View {
             }
         }
         .navigationTitle("Edit Item")
-        .onDisappear(perform: dataController.save)
+        .onDisappear(perform: save)
     }
 
     /// Announcing that item will change and then updating item's values
@@ -58,6 +58,11 @@ struct EditItemView: View {
         item.detail = detail
         item.priority = Int16(priority)
         item.completed = completed
+    }
+
+    /// Updating both Spotlight and CoreData
+    func save() {
+        dataController.update(item)
     }
 }
 
