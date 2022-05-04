@@ -4,19 +4,18 @@
 //
 //  Created by Tomasz Ogrodowski on 30/03/2022.
 //
-// swiftlint:disable trailing_whitespace
 
 import SwiftUI
 
 @main
 struct UltimatePortoflioAppApp: App {
     @StateObject var dataController: DataController
-    
+
     init() {
         let dataController = DataController()
         _dataController = StateObject(wrappedValue: dataController)
     }
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -33,7 +32,7 @@ struct UltimatePortoflioAppApp: App {
                 )
         }
     }
-    
+
     func save(_ note: Notification) {
         dataController.save()
     }

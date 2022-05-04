@@ -4,7 +4,6 @@
 //
 //  Created by Tomasz Ogrodowski on 10/04/2022.
 //
-// swiftlint:disable trailing_whitespace
 
 import SwiftUI
 
@@ -14,10 +13,10 @@ import SwiftUI
 /// Contains an Circle stroke with project color and
 /// basic information about item
 struct ItemListView: View {
-    
+
     let title: LocalizedStringKey
     let items: ArraySlice<Item>
-    
+
     var itemList: some View {
         ForEach(items) { item in
             NavigationLink(destination: EditItemView(item: item)) {
@@ -25,13 +24,13 @@ struct ItemListView: View {
                     Circle()
                         .stroke(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
                         .frame(width: 44, height: 44)
-                    
+
                     VStack(alignment: .leading) {
                         Text(item.itemTitle)
                             .font(.title2)
                             .foregroundColor(.primary)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         if item.itemDetail.isEmpty == false {
                             Text(item.itemDetail)
                                 .foregroundColor(.secondary)
@@ -45,7 +44,7 @@ struct ItemListView: View {
             }
         }
     }
-    
+
     var body: some View {
         if items.isEmpty {
             EmptyView()
@@ -54,7 +53,7 @@ struct ItemListView: View {
                 .font(.headline)
                 .foregroundColor(.secondary)
                 .padding(.top)
-            
+
             itemList
         }
     }

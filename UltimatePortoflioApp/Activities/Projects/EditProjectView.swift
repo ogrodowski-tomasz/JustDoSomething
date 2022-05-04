@@ -5,6 +5,7 @@
 //  Created by Tomasz Ogrodowski on 06/04/2022.
 //
 
+import CoreHaptics
 import SwiftUI
 
 struct EditProjectView: View {
@@ -16,8 +17,10 @@ struct EditProjectView: View {
     @State private var title: String
     @State private var detail: String
     @State private var color: String
-
     @State private var showingDeleteConfirm = false
+
+    // Setting up the haptic engine. It may fail so we use 'try?'
+    @State private var engine = try? CHHapticEngine()
 
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
@@ -48,10 +51,8 @@ struct EditProjectView: View {
             }
             // swiftlint:disable:next line_length
             Section(footer: Text("Closing a project moves it from the Open to Closed tab; deleting it removes the project entirely.")) {
-                Button(project.closed ? "Reopen this project" : "Close this project") {
-                    project.closed.toggle()
-                    update()
-                }
+                Button(project.closed ? "Reopen this project" : "Close this project", action: toggleClosed)
+
                 Button("Delete this project") {
                     showingDeleteConfirm.toggle()
                 }
@@ -82,6 +83,52 @@ struct EditProjectView: View {
     func delete() {
         dataController.delete(project)
         presetationMode.wrappedValue.dismiss()
+    }
+
+    /// Manages haptic effect when the project is being closed
+    func toggleClosed() {
+        project.closed.toggle()
+        if project.closed {
+            // trigger haptic
+            do {
+                // starting haptic engine
+                try engine?.start()
+                // customizing parameters of the haptic event
+                let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0)
+                let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+                // creatign a curve to immitate 'TaDa' effect
+                // Start at time '0' with value '1'
+                let start = CHHapticParameterCurve.ControlPoint(relativeTime: 0, value: 1)
+                // End at time '1' with value '0' (it is relative time, not seconds)
+                let end = CHHapticParameterCurve.ControlPoint(relativeTime: 1, value: 0)
+
+                // This curve is applied to Intensity parameter with 2 control points at starting point 0
+                let parameter = CHHapticParameterCurve(
+                    parameterID: .hapticIntensityControl,
+                    controlPoints: [start, end],
+                    relativeTime: 0
+                )
+                // Creating a transient effect (first part of the pattern)
+                let event1 = CHHapticEvent(
+                    eventType: .hapticTransient,
+                    parameters: [sharpness, intensity],
+                    relativeTime: 0 // start at 0 seconds
+                )
+                // Creating a continous effect (second part of the pattern)
+                let event2 = CHHapticEvent(
+                    eventType: .hapticContinuous,
+                    parameters: [sharpness, intensity],
+                    relativeTime: 0.125,
+                    duration: 1
+                )
+                // Creating a pattern with events and curve between them
+                let pattern = try CHHapticPattern(events: [event1, event2], parameterCurves: [parameter])
+                let player = try? engine?.makePlayer(with: pattern)
+                try player?.start(atTime: 0)
+            } catch let error {
+                print("Error playing haptics: \(error)")
+            }
+        }
     }
 
     ///  View that show a square filled with given color

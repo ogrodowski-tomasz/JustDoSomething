@@ -4,20 +4,19 @@
 //
 //  Created by Tomasz Ogrodowski on 06/04/2022.
 //
-// swiftlint:disable trailing_whitespace
 
 import SwiftUI
 
 struct EditItemView: View {
     let item: Item
-    
+
     @EnvironmentObject var dataController: DataController
-    
+
     @State private var title: String
     @State private var detail: String
     @State private var priority: Int
     @State private var completed: Bool
-    
+
     /// Initializing a view with state wrapped values from a certain item
     /// - Parameter item: item chosen by user, which he wants to edit
     init(item: Item) {
@@ -34,7 +33,7 @@ struct EditItemView: View {
                 TextField("Item name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
             }
-            
+
             Section(header: Text("Priority")) {
                 Picker("Priority", selection: $priority.onChange(update)) {
                     Text("Low").tag(1)
@@ -43,7 +42,7 @@ struct EditItemView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
-            
+
             Section {
                 Toggle("Mark Completed", isOn: $completed.onChange(update))
             }
@@ -51,7 +50,7 @@ struct EditItemView: View {
         .navigationTitle("Edit Item")
         .onDisappear(perform: dataController.save)
     }
-    
+
     /// Announcing that item will change and then updating item's values
     func update() {
         item.project?.objectWillChange.send()
