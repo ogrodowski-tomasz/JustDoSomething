@@ -17,7 +17,12 @@ struct EditProjectView: View {
     @State private var title: String
     @State private var detail: String
     @State private var color: String
+
     @State private var showingDeleteConfirm = false
+    @State private var showingNotificationError = false
+
+    @State private var remindMe: Bool
+    @State private var reminderTime: Date
 
     // Setting up the haptic engine. It may fail so we use 'try?'
     @State private var engine = try? CHHapticEngine()
@@ -34,6 +39,14 @@ struct EditProjectView: View {
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
+
+        if let projectRemiderTime = project.reminderTime {
+            _reminderTime = State(wrappedValue: projectRemiderTime)
+            _remindMe = State(wrappedValue: true)
+        } else {
+            _reminderTime = State(wrappedValue: Date())
+            _remindMe = State(wrappedValue: false)
+        }
     }
 
     var body: some View {
@@ -49,6 +62,27 @@ struct EditProjectView: View {
                 }
                 .padding(.vertical)
             }
+
+            Section(header: Text("Project reminders")) {
+                Toggle("Show reminders", isOn: $remindMe.animation().onChange(update))
+                    .alert(isPresented: $showingNotificationError) {
+                        Alert(
+                            title: Text("Oops!"),
+                            message: Text("There was a problem. Please check you have notifications enabled."),
+                            primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+                            secondaryButton: .cancel()
+                        )
+                    }
+
+                if remindMe {
+                    DatePicker(
+                        "Reminder time",
+                        selection: $reminderTime.onChange(update),
+                        displayedComponents: .hourAndMinute
+                    )
+                }
+            }
+
             // swiftlint:disable:next line_length
             Section(footer: Text("Closing a project moves it from the Open to Closed tab; deleting it removes the project entirely.")) {
                 Button(project.closed ? "Reopen this project" : "Close this project", action: toggleClosed)
@@ -77,6 +111,20 @@ struct EditProjectView: View {
         project.title = title
         project.detail = detail
         project.color = color
+
+        if remindMe {
+            project.reminderTime = reminderTime
+            dataController.addReminders(for: project) { success in
+                if success == false {
+                    project.reminderTime = nil
+                    remindMe = false
+                    showingNotificationError = true
+                }
+            }
+        } else {
+            project.reminderTime = nil
+            dataController.removeReminders(for: project)
+        }
     }
 
     /// Deletes entire project and its items. After that the view is dismissed
@@ -157,6 +205,17 @@ struct EditProjectView: View {
             : .isButton
         )
         .accessibilityLabel(LocalizedStringKey(item))
+    }
+
+    /// Opening 'Settings for our app'
+    func showAppSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL)
+        }
     }
 }
 

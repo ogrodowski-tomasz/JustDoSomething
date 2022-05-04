@@ -8,6 +8,7 @@
 import CoreData
 import CoreSpotlight
 import SwiftUI
+import UserNotifications
 
 /// An environment singleton responsible for managing out Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards and dealing with sample data.
@@ -194,5 +195,79 @@ class DataController: ObservableObject {
         }
 
         return try? container.viewContext.existingObject(with: id) as? Item
+    }
+
+    func addReminders(for project: Project, completion: @escaping (Bool) -> Void) {
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                self.requestNotifications { success in
+                    if success { self.placeReminders(for: project, completion: completion)
+                    } else {
+                        DispatchQueue.main.async {
+                            completion(false)
+                        }
+                    }
+                }
+            case .authorized:
+                self.placeReminders(for: project, completion: completion)
+            default:
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+            }
+        }
+    }
+
+    /// Removing reminders that are waiting to be alerted in the future
+    func removeReminders(for project: Project) {
+        let center = UNUserNotificationCenter.current()
+        let id = project.objectID.uriRepresentation().absoluteString
+
+        center.removePendingNotificationRequests(withIdentifiers: [id])
+    }
+
+    /// Asking iOS if app can show notifications.
+    ///
+    /// Telling system that app want to show notifications and defines what types of notifications.
+    /// Completion: What the app will do if the user authorize the notifications
+    private func requestNotifications(completion: @escaping (Bool) -> Void) {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { granted, _ in
+            completion(granted)
+        }
+    }
+
+    private func placeReminders(for project: Project, completion: @escaping (Bool) -> Void) {
+        /// 1. Content of the alert (what to show)
+        let content = UNMutableNotificationContent()
+        content.title = project.projectTitle
+        content.sound = .default
+
+        if let projectDetail = project.detail {
+            content.subtitle = projectDetail
+        }
+        /// 2. Trigger of the notification (when to show it)
+        let components = Calendar.current.dateComponents(
+            [.hour, .minute],
+            from: project.reminderTime ?? Date()
+        )
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+
+        /// 3. Wrapping content and trigger into a single notification with specified ID.
+        let id = project.objectID.uriRepresentation().absoluteString
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+
+        /// 4. Sending request to system
+        UNUserNotificationCenter.current().add(request) { error in
+            DispatchQueue.main.async {
+                if error == nil {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
+        }
     }
 }
