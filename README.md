@@ -8,7 +8,7 @@ Highly advanced app that lets user create habits and stick to them. Code include
 4. UserNotifications
 5. Localization (English and Polish languages)
 6. Linting code with swiftlint
-
+7. Unix and UI tests
 
 and more in the future...
 
