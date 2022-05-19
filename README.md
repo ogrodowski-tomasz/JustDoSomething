@@ -1,16 +1,18 @@
-# UltimatePortfolio
+# JustDoSomething
 
 
-Highly advanced app that include:
+Highly advanced app that lets user create habits and stick to them. Code includes:
 1. Core Data
 2. SwiftUI
 3. Core Spotlight
 4. UserNotifications
 5. Localization (English and Polish languages)
+6. Linting code with swiftlint
+
 
 and more in the future...
 
-# Basic look (language shown is Polish, but later English version will be presented)
+# Basic look (Polish version)
 
 <img src = "https://user-images.githubusercontent.com/100759669/169277347-c4cbab1a-ad86-4eb9-b11b-0320ba73279b.png" width=140> | <img src = "https://user-images.githubusercontent.com/100759669/169277608-a9be4277-9d3f-4d75-8743-abf0d36030e6.png" width=140> | <img src = "https://user-images.githubusercontent.com/100759669/169277619-b7d08cba-04d7-4aff-a31c-7cdf17b94ba9.png" width=140> | <img src = "https://user-images.githubusercontent.com/100759669/169277635-fa6fab1a-286f-4659-960e-612d3e18e01d.png" width=140>
 
